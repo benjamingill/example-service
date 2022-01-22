@@ -1,0 +1,7 @@
+db:
+  host: localhost
+  port: 5432
+  user: postgres
+  database: work_orders
+  password: "password"
+publicFacingEndpointUrl: "https://int-pathfinder.domain.com"

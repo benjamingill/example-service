@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "sourceMap": true,
+        "allowSyntheticDefaultImports": true,
+        "target": "es2019",
+        "allowJs": true,
+        "resolveJsonModule": true,
+        "module": "commonjs",
+        "outDir": "dist",
+        "esModuleInterop": true
+    },
+    "include": ["src/**/*"]
+}

@@ -1,0 +1,16 @@
+version: '3'
+services:
+  flyway:
+    image: boxfuse/flyway
+    command: -c "sleep 10; flyway migrate -url=jdbc:postgresql://postgres:5432/pathfinder -schemas=public -user=postgres migrate"
+    entrypoint: sh
+    depends_on:
+      - postgres
+    volumes:
+      - ./sql:/flyway/sql
+  postgres:
+    environment:
+      POSTGRES_DB: work_orders
+    image: postgres:10.7-alpine
+    ports:
+      - 5432:5432

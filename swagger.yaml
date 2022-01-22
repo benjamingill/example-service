@@ -1,0 +1,60 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "Pathfinder"
+  termsOfService: "Tier 2"
+  contact:
+    name: "Team Awesome"
+    email: "teamawesome@email.com"
+basePath: /
+schemes:
+  - "https"
+tags:
+  - name: "Utilities"
+    description: "Tools for the service"
+paths:
+  /healthcheck:
+    get:
+      tags:
+        - Utilities
+      summary: Service Healthcheck
+      description: healthcheck
+      operationId: HealthCheck
+      responses:
+        200:
+          description: OK
+        503:
+          description: Problems with service
+
+  /v1/work-orders:
+    get:
+      tags:
+        - "Work Orders"
+      summary: "Get all work orders"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "work orders retrieved successfully"
+          schema:
+            $ref: "#/definitions/workOrder"
+
+definitions:
+  workOrder:
+    type: "object"
+    properties:
+      id:
+        type: string
+      status:
+        type: string
+
+securityDefinitions:
+  auth0:
+    description: Authentication with Auth0
+    authorizationUrl: "https://authorization.service/authorize"
+    flow: implicit
+    type: oauth2
+    scopes: {}
+
+security:
+  - auth0: []
